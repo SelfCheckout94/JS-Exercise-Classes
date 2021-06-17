@@ -80,6 +80,8 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
+// LEFT OFF WTH EVERYTHING  SOLVED IN TASK 2 EXCEPT FOR [7] and [8] IN THE TEST.JS FILE
+
  class Car {
    constructor(model, milesPerGallon){
     this.model = model
@@ -92,14 +94,24 @@ class Airplane {
     this.tank += gallons
   }
   drive(distance){
-    if(this.tank > 0){
-      this.odometer += distance
-      this.tank = this.tank - (distance / this.milesPerGallon)
-    }else {
-      return `I ran out of fuel at ${this.odomoter} miles!`
+    // figure out how far i can go
+    let howFar = this.tank * this.milesPerGallon
+    // this.tank = amount of gas i have in gallons
+    // this.milesPerGallon = how much gas is consumed per mile
+    console.log(howFar, distance)
+    this.odometer += distance
+    this.tank -= distance / this.milesPerGallon
+    console.log(this.odometer)
+    // figure out if i can go the distance
+    if(howFar < distance){
+      this.odometer = howFar
+      this.tank = 0
+      return `I ran out of fuel at ${howFar} miles!`
     }
   }
 }
+
+// LEFT OFF WTH EVERYTHING  SOLVED IN TASK 2 EXCEPT FOR [7] and [8] IN THE TEST.JS FILE
   
   /*
     TASK 3
